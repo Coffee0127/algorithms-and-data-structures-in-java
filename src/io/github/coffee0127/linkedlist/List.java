@@ -53,7 +53,6 @@ public class List<T> {
             lastNode = firstNode;
         } else {
             firstNode = new Node<>(item, firstNode);
-            lastNode = firstNode;
         }
     }
 
@@ -75,10 +74,11 @@ public class List<T> {
         StringBuilder str = new StringBuilder("The " + name + " is : \n");
         Node<T> current = firstNode;
         while (current != null) {
-            str.append(str.toString()).append(current.getData()).append(" ");
+            str.append(current.getData()).append("\n");
             current = current.getNextNode();
         }
 
+        str.append("End ").append(name);
         return str.toString();
     }
 
@@ -115,7 +115,7 @@ public class List<T> {
             firstNode = null;
             lastNode = null;
         } else {
-            Node<T> current = this.firstNode;
+            Node<T> current = firstNode;
             while (current.getNextNode() != lastNode) {
                 current = current.getNextNode();
             }
