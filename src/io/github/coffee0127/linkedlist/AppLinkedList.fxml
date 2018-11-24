@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="295.0" prefWidth="611.0" xmlns="http://javafx.com/javafx/8.0.172-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.coffee0127.linkedlist.AppLinkedList">
+    <TextField fx:id="insertAtFront" layoutX="16.0" layoutY="38.0">
+        <font>
+            <Font size="14.0"/>
+        </font>
+    </TextField>
+    <Button layoutX="212.0" layoutY="38.0" mnemonicParsing="false" onAction="#insertAtFrontClick" text="insertAtFront">
+        <font>
+            <Font size="14.0"/>
+        </font>
+    </Button>
+    <Label layoutX="16.0" layoutY="14.0" text="Insert Element"/>
+    <Label layoutX="16.0" layoutY="80.0" text="Insert Element"/>
+    <TextField fx:id="insertAtBack" layoutX="14.0" layoutY="104.0">
+        <font>
+            <Font size="14.0"/>
+        </font>
+    </TextField>
+    <Button layoutX="212.0" layoutY="104.0" mnemonicParsing="false" onAction="#insertAtBackClick" text="insertAtBack">
+        <font>
+            <Font size="14.0"/>
+        </font>
+    </Button>
+    <Button layoutX="214.0" layoutY="168.0" mnemonicParsing="false" onAction="#randomListClick" text="RandomList">
+        <font>
+            <Font size="14.0"/>
+        </font>
+    </Button>
+    <Button layoutX="14.0" layoutY="168.0" mnemonicParsing="false" onAction="#removeFromFrontClick"
+            text="removeFromFront">
+        <font>
+            <Font size="14.0"/>
+        </font>
+    </Button>
+    <Button layoutX="16.0" layoutY="207.0" mnemonicParsing="false" onAction="#removeFromBackClick"
+            text="removeFromBack">
+        <font>
+            <Font size="14.0"/>
+        </font>
+    </Button>
+    <Button layoutX="16.0" layoutY="248.0" mnemonicParsing="false" onAction="#removeAllClick" prefHeight="29.0"
+            prefWidth="136.0" text="removeAll" textFill="RED">
+        <font>
+            <Font size="14.0"/>
+        </font>
+    </Button>
+    <Button layoutX="470.0" layoutY="38.0" mnemonicParsing="false" onAction="#printTheListClick" text="Print The List">
+        <font>
+            <Font size="14.0"/>
+        </font>
+    </Button>
+    <TextArea fx:id="printList" layoutX="370.0" layoutY="83.0" prefHeight="200.0" prefWidth="200.0"/>
+    <Label fx:id="eventShower" layoutX="212.0" layoutY="225.0"/>
+</AnchorPane>
