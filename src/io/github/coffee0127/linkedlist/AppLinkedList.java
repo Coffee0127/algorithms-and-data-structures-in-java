@@ -48,10 +48,7 @@ public class AppLinkedList extends Application {
     private Label eventShower;
 
     @FXML
-    private TextField insertAtFront;
-
-    @FXML
-    private TextField insertAtBack;
+    private TextField insertElement;
 
     @FXML
     private TextArea printList;
@@ -62,16 +59,16 @@ public class AppLinkedList extends Application {
 
     @FXML
     private void insertAtFrontClick(ActionEvent event) {
-        list.insertAtFront(insertAtFront.getText());
+        list.insertAtFront(insertElement.getText());
         eventShower.setText("Insert At Front");
-        insertAtFront.setText(null);
+        insertElement.setText(null);
     }
 
     @FXML
     private void insertAtBackClick(ActionEvent event) {
-        list.insertAtBack(insertAtBack.getText());
+        list.insertAtBack(insertElement.getText());
         eventShower.setText("Insert At Back");
-        insertAtBack.setText(null);
+        insertElement.setText(null);
     }
 
     @FXML
