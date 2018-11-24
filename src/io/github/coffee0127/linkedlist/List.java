@@ -66,6 +66,26 @@ public class List<T> {
         }
     }
 
+    public void insertAt(T item, int index) {
+        if (isEmpty()) {
+            insertAtFront(item);
+        } else {
+            if (index == 1) {
+                insertAtFront(item);
+                return;
+            }
+
+            int number = 1;
+            Node<T> current = firstNode;
+            Node<T> prev = current;
+            while (number++ != index) {
+                prev = current;
+                current = current.nextNode;
+            }
+            prev.nextNode = new Node<>(item, current);
+        }
+    }
+
     public String print() {
         if (isEmpty()) {
             return "Empty " + name + " List";

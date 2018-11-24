@@ -75,6 +75,13 @@ public class AppLinkedList extends Application {
     }
 
     @FXML
+    private void insertAt(ActionEvent event) {
+        list.insertAt(insertElement.getText(), Integer.parseInt(index.getText()));
+        eventShower.setText("Insert At");
+        insertElement.setText(null);
+    }
+
+    @FXML
     private void randomListClick(ActionEvent event) {
         for (int i = 0; i < 10; i++) {
             list.insertAtBack(String.valueOf(Math.round(Math.random() * 100)));

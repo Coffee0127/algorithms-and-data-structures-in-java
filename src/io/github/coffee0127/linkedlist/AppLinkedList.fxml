@@ -58,7 +58,7 @@
             <Font size="14.0" />
         </font>
     </TextField>
-    <Button layoutX="316.0" layoutY="77.0" mnemonicParsing="false" onAction="#insertAtBackClick" prefWidth="140.0" text="insertAt">
+    <Button layoutX="316.0" layoutY="77.0" mnemonicParsing="false" onAction="#insertAt" prefWidth="140.0" text="insertAt">
         <font>
             <Font size="14.0" />
         </font>
