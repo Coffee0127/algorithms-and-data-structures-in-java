@@ -68,7 +68,7 @@
             <Font size="14.0" />
         </font>
     </Button>
-    <Button layoutX="316.0" layoutY="157.0" mnemonicParsing="false" onAction="#removeFromBackClick" prefWidth="140.0" text="getElementAt">
+    <Button layoutX="316.0" layoutY="157.0" mnemonicParsing="false" onAction="#getElementAtClick" prefWidth="140.0" text="getElementAt">
         <font>
             <Font size="14.0" />
         </font>

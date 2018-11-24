@@ -53,6 +53,9 @@ public class AppLinkedList extends Application {
     @FXML
     private TextArea printList;
 
+    @FXML
+    private TextField index;
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -104,6 +107,20 @@ public class AppLinkedList extends Application {
     @FXML
     private void printTheListClick(ActionEvent event) {
         printList.setText(list.print());
+    }
+
+    @FXML
+    private void getElementAtClick(ActionEvent event) {
+        if (isBlank(index.getText())) {
+            eventShower.setText("No index.");
+            return;
+        }
+
+        eventShower.setText(list.printElementAt(Integer.parseInt(index.getText())));
+    }
+
+    private boolean isBlank(String text) {
+        return text == null || text.trim().length() == 0;
     }
 
     @Override

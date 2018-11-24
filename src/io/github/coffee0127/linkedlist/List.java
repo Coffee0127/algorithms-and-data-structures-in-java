@@ -125,4 +125,25 @@ public class List<T> {
 
         return removedItem;
     }
+
+    public String printElementAt(int index) {
+        int number = 1;
+        if (isEmpty()) {
+            return "Empty " + name;
+        }
+
+        StringBuilder str = new StringBuilder("The Node at " + index + " is : ");
+
+        Node<T> current = firstNode;
+        while (current != null) {
+            if (number == index) {
+                str.append(current.getData());
+                break;
+            }
+            number++;
+            current = current.nextNode;
+        }
+
+        return str.toString();
+    }
 }
