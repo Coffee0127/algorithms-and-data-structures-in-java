@@ -119,6 +119,16 @@ public class AppLinkedList extends Application {
         eventShower.setText(list.printElementAt(Integer.parseInt(index.getText())));
     }
 
+    @FXML
+    private void removeAtClick(ActionEvent event) {
+        if (isBlank(index.getText())) {
+            eventShower.setText("No index.");
+            return;
+        }
+
+        eventShower.setText("remove success:" + list.deleteNode(Integer.parseInt(index.getText())));
+    }
+
     private boolean isBlank(String text) {
         return text == null || text.trim().length() == 0;
     }

@@ -146,4 +146,30 @@ public class List<T> {
 
         return str.toString();
     }
+
+    public boolean deleteNode(int index) {
+        if (isEmpty()) {
+            return false;
+        }
+
+        if (index == 1) {
+            firstNode = firstNode.nextNode;
+            return true;
+        }
+
+        int number = 1;
+        Node<T> current = firstNode;
+        Node<T> prev = current;
+
+        while (current != null) {
+            if (number == index) {
+                prev.nextNode = current.nextNode;
+                return true;
+            }
+            number++;
+            prev = current;
+            current = current.nextNode;
+        }
+        return false;
+    }
 }
