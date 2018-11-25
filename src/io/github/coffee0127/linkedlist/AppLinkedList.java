@@ -23,16 +23,12 @@
  */
 package io.github.coffee0127.linkedlist;
 
-import javafx.application.Application;
+import io.github.coffee0127.AbstractApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 /**
  * AppLinkedList
@@ -40,7 +36,7 @@ import javafx.stage.Stage;
  * @author Bo-Xuan Fan
  * @since 2018-11-21
  */
-public class AppLinkedList extends Application {
+public class AppLinkedList extends AbstractApplication {
 
     private List<String> list = new List<>("MyList");
 
@@ -136,18 +132,14 @@ public class AppLinkedList extends Application {
         eventShower.setText("remove success:" + list.deleteNode(Integer.parseInt(index.getText())));
     }
 
-    private boolean isBlank(String text) {
-        return text == null || text.trim().length() == 0;
+    @Override
+    protected String getAppTitle() {
+        return "LinkedList";
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("AppLinkedList.fxml"));
-
-        Scene scene = new Scene(root);
-        primaryStage.setTitle("LinkedList");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+    protected String getResourceName() {
+        return "AppLinkedList.fxml";
     }
 
 }
