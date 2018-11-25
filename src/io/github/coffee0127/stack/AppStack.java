@@ -21,19 +21,64 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package io.github.coffee0127.stack;/**
+package io.github.coffee0127.stack;
+
+import java.util.Random;
+
+import io.github.coffee0127.AbstractApplication;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.TextArea;
+
+/**
  * AppStack
  *
  * @author Bo-Xuan Fan
  * @since 2018-11-25
  */
-
-import io.github.coffee0127.AbstractApplication;
-
 public class AppStack extends AbstractApplication {
+
+    @FXML
+    private TextArea textArea;
+
+    private Stack stack = new Stack(10);
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    @FXML
+    private void pushElement(ActionEvent event) {
+        Random random = new Random();
+        int n = random.nextInt(50) + 1;
+
+        if (stack.push(n)) {
+            textArea.setText("Array: \n" + stack.toString()
+                + "\nThe number of element is : " + stack.getItemCount());
+        } else {
+            textArea.setText("Array: \n" + stack.toString()
+                + "\nThe number of element is : " + stack.getItemCount()
+                + "\nCould not insert data, stack is full");
+        }
+    }
+
+    @FXML
+    private void popElement(ActionEvent event) {
+        if (stack.pop()) {
+            textArea.setText("Array: \n" + stack.toString()
+                + "\nThe number of element is : " + stack.getItemCount());
+        } else {
+            textArea.setText("Array: \n" + stack.toString()
+                + "\nThe number of element is : " + stack.getItemCount()
+                + "\nCould not retrieve data, stack is empty");
+        }
+    }
+
+    @FXML
+    private void peekElement(ActionEvent event) {
+        textArea.setText("Array: \n" + stack.toString()
+            + "\nThe number of element is : " + stack.getItemCount()
+            + "\nThe top element is : " + stack.peek());
     }
 
     @Override

@@ -36,7 +36,6 @@ public class Stack {
     private int size;
     private int[] stack;
     private int top = -1;
-    private int itemCount = 0;
 
     public Stack() {
         this(10);
@@ -45,6 +44,10 @@ public class Stack {
     public Stack(int size) {
         this.size = size;
         stack = new int[size];
+    }
+
+    public int getItemCount() {
+        return top + 1;
     }
 
     public boolean isEmpty() {
@@ -56,13 +59,15 @@ public class Stack {
     }
 
     public int peek() {
+        if (isEmpty()) {
+            return 0;
+        }
         return stack[top];
     }
 
     public boolean pop() {
         if (!isEmpty()) {
             stack[top--] = 0;
-            itemCount--;
             return true;
         }
         return false;
@@ -70,8 +75,7 @@ public class Stack {
 
     public boolean push(int data) {
         if (!isFull()) {
-            stack[top++] = data;
-            itemCount++;
+            stack[++top] = data;
             return true;
         }
         return false;
