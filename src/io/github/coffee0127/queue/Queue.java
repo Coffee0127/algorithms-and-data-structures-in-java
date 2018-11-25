@@ -36,7 +36,7 @@ public class Queue {
     private int size;
     private int[] array;
     private int front = 0;
-    private int rear = -1;
+    private int rear = 0;
     private int itemCount = 0;
 
     public Queue() {
@@ -46,6 +46,10 @@ public class Queue {
     public Queue(int size) {
         this.size = size;
         array = new int[size];
+    }
+
+    public int getItemCount() {
+        return itemCount;
     }
 
     public int peek() {
@@ -65,22 +69,26 @@ public class Queue {
         array = new int[size];
     }
 
-    public void insert(int data) {
+    public boolean enqueue(int data) {
         if (!isFull()) {
-            if (rear == size - 1) {
-                rear = -1;
-            }
-            array[++rear] = data;
+            array[rear++ % size] = data;
             itemCount++;
+            return true;
         }
+        return false;
     }
 
-    public int removeDate() {
-        array[front] = 0;
-        int data = array[front++];
+    public int dequeue() throws EmptyQueueException {
+        if (isEmpty()) {
+            throw new EmptyQueueException();
+        }
 
-        if (front == size) {
-            front = 0;
+        int index = front % size;
+        int data = array[index];
+        array[index] = 0;
+
+        if (front < rear) {
+            front++;
         }
 
         if (itemCount > 0) {

@@ -23,7 +23,10 @@
  */
 package io.github.coffee0127.queue;
 
+import java.util.Random;
+
 import io.github.coffee0127.AbstractApplication;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 
@@ -35,8 +38,37 @@ import javafx.scene.control.TextArea;
  */
 public class AppQueue extends AbstractApplication {
 
+    private Queue queue = new Queue(10);
+
     @FXML
     private TextArea textArea;
+
+    @FXML
+    private void enqueueElement(ActionEvent event) {
+        Random random = new Random();
+        int n = random.nextInt(50) + 1;
+
+        if (queue.enqueue(n)) {
+            textArea.setText("Queue: \n" + queue.toString()
+                + "\nThe number of element is : " + queue.getItemCount());
+        } else {
+            textArea.setText("Queue: \n" + queue.toString()
+                + "\nThe number of element is : " + queue.getItemCount()
+                + "\nCould not insert data, queue is full");
+        }
+    }
+
+    @FXML
+    private void dequeueElement(ActionEvent event) {
+        try {
+            int dequeue = queue.dequeue();
+            textArea.setText("Queue: \n" + queue.toString()
+                + "\nThe number of element is : " + queue.getItemCount()
+                + "\nDequeue data is : " + dequeue);
+        } catch (EmptyQueueException e) {
+            textArea.setText("Queue is empty!");
+        }
+    }
 
     public static void main(String[] args) {
         launch(args);
