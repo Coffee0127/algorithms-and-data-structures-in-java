@@ -70,6 +70,13 @@ public class AppQueue extends AbstractApplication {
         }
     }
 
+    @FXML
+    public void peekElement(ActionEvent actionEvent) {
+        textArea.setText("Queue: \n" + queue.toString()
+            + "\nThe number of element is : " + queue.getItemCount()
+            + "\nPeek data is : " + queue.peek());
+    }
+
     public static void main(String[] args) {
         launch(args);
     }
