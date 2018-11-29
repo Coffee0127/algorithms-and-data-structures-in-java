@@ -40,13 +40,13 @@ public class HashMap {
     }
 
     public int getKey(String userName) {
-        int j = 0;
+        int key = 0;
 
         for (int i = 0; i < userName.length(); i++) {
-            j += userName.charAt(i);
+            key += userName.charAt(i);
         }
 
-        return j;
+        return key;
     }
 
     public void put(int key, String value) {
