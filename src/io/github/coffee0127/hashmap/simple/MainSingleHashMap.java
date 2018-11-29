@@ -35,16 +35,23 @@ public class MainSingleHashMap {
 
         HashMap map = new HashMap();
 
-        System.out.println(map.getKey("George"));
-        System.out.println(map.getKey("Chris"));
+        // System.out.println(map.getKey("George"));
+        // System.out.println(map.getKey("Chris"));
+        //
+        // map.put(map.getKey("George"), "George");
+        // map.put(1234, "Chris");
+        // map.put(1235, "Nick");
+        // map.put(1236, "Michael");
+        //
+        // System.out.println(map.get(1234));
+        // System.out.println(map.get(map.getKey("George")));
 
-        map.put(map.getKey("George"), "George");
-        map.put(1234, "Chris");
-        map.put(1235, "Nick");
-        map.put(1236, "Michael");
-
-        System.out.println(map.get(1234));
-        System.out.println(map.get(map.getKey("George")));
+        int key = map.getKey("Jack");
+        int collisionKey = key + 128;
+        map.put(key, "Jack");
+        map.put(collisionKey, "Rose");
+        System.out.println(map.get(key));
+        System.out.println(map.get(collisionKey));
     }
 
 }
