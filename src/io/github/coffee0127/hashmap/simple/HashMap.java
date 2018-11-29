@@ -50,23 +50,23 @@ public class HashMap {
     }
 
     public void put(int key, String value) {
-        int hash = key % TABLE_SIZE;
-        while (table[hash] != null && table[hash].getKey() != key) {
-            hash = (hash + 1) % TABLE_SIZE;
-        }
-
+        int hash = convertToHash(key);
         table[hash] = new HashEntry(key, value);
     }
 
     public String get(int key) {
-        int hash = key % TABLE_SIZE;
-        while (table[hash] != null && table[hash].getKey() != key) {
-            hash = (hash + 1) % TABLE_SIZE;
-        }
-
+        int hash = convertToHash(key);
         if (table[hash] == null) {
             return "Was not found";
         }
         return table[hash].getValue();
+    }
+
+    private int convertToHash(int key) {
+        int hash = key % TABLE_SIZE;
+        while (table[hash] != null && table[hash].getKey() != key) {
+            hash = (hash + 1) % TABLE_SIZE;
+        }
+        return hash;
     }
 }
