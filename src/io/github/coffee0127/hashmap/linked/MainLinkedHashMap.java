@@ -34,15 +34,25 @@ public class MainLinkedHashMap {
     public static void main(String[] args) {
         HashMap map = new HashMap();
 
-        map.put(123, "1");
-        map.put(124, "2");
-        map.put(125, "3");
-        map.put(126, "4");
+        // map.put(123, "1");
+        // map.put(124, "2");
+        // map.put(125, "3");
+        // map.put(126, "4");
+        //
+        // System.out.println(map.get(123));
+        //
+        // map.remove(124);
+        // System.out.println(map.get(124));
 
-        System.out.println(map.get(123));
+        int key = 123;
+        int collisionKey = key + 128;
+        map.put(key, "1");
+        map.put(collisionKey, "2");
 
-        map.remove(124);
-        System.out.println(map.get(124));
+        System.out.println(map);
+        System.out.println("----------------");
+        map.remove(key);
+        System.out.println(map);
     }
 
 }
