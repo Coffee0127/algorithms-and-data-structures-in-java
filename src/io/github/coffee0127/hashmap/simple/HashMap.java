@@ -63,9 +63,14 @@ public class HashMap {
     }
 
     private int convertToHash(int key) {
-        int hash = key % TABLE_SIZE;
+        int initialHash = key % TABLE_SIZE;
+        int hash = initialHash;
         while (table[hash] != null && table[hash].getKey() != key) {
             hash = (hash + 1) % TABLE_SIZE;
+
+            if (hash == initialHash) {
+                throw new RuntimeException("Hash Map is full.");
+            }
         }
         return hash;
     }
