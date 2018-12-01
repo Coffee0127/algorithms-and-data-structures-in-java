@@ -23,6 +23,10 @@
  */
 package io.github.coffee0127.hashmap.linked;
 
+import static java.util.stream.Collectors.joining;
+
+import java.util.Arrays;
+
 /**
  * HashMap
  *
@@ -108,4 +112,12 @@ public class HashMap {
             }
         }
     }
+
+    @Override
+    public String toString() {
+        return Arrays.stream(table)
+            .map(String::valueOf)
+            .collect(joining("," + System.lineSeparator()));
+    }
+
 }

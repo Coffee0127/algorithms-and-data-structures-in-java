@@ -59,4 +59,10 @@ public class LinkedHashEntry {
     public void setNext(LinkedHashEntry next) {
         this.next = next;
     }
+
+    @Override
+    public String toString() {
+        return "LinkedHashEntry{" +
+            "key=" + key + ", value=" + value + ", next=" + next + '}';
+    }
 }
