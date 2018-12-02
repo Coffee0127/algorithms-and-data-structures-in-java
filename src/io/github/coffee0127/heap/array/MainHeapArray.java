@@ -37,5 +37,12 @@ public class MainHeapArray {
         heap.creatHeap();
         heap.print();
         heap.printTree();
+
+        int element = 100;
+        System.out.println();
+        System.out.println("Insert element " + element + " to Heap");
+        heap.insert(element);
+        heap.print();
+        heap.printTree();
     }
 }

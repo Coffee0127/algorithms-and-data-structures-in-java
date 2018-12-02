@@ -95,4 +95,30 @@ public class HeapArray {
         }
         System.out.println();
     }
+
+    public void insert(int element) {
+        size++;
+        int[] newArray = new int[size + 2];
+        System.arraycopy(array, 0, newArray, 0, array.length);
+        array = newArray;
+        array[size] = element;
+        swapElement(element);
+    }
+
+    private void swapElement(int element) {
+        int childIndex = size;
+        int parentIndex = childIndex / 2;
+        while (parentIndex != 0 && array[parentIndex] < element) {
+            swap(parentIndex, childIndex);
+
+            childIndex = parentIndex;
+            parentIndex = childIndex / 2;
+        }
+    }
+
+    private void swap(int parentIndex, int childIndex) {
+        array[parentIndex] = array[parentIndex] ^ array[childIndex];
+        array[childIndex] = array[parentIndex] ^ array[childIndex];
+        array[parentIndex] = array[parentIndex] ^ array[childIndex];
+    }
 }
