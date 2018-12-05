@@ -69,4 +69,33 @@ public class Heap {
         return current;
     }
 
+    public HeapNode deleteNode(HeapNode node, int value) {
+        // delete nothing
+        if (node == null) {
+            return null;
+        }
+
+        if (value < node.getValue()) {
+            // search the left subtree
+            node.setLeft(deleteNode(node.getLeft(), value));
+        } else if (value > node.getValue()) {
+            // search the right subtree
+            node.setRight(deleteNode(node.getRight(), value));
+        } else {
+            // delete the node
+            if (node.getLeft() == null) {
+                return node.getRight();
+            } else if (node.getRight() == null) {
+                return node.getLeft();
+            }
+
+            // delete node with two children
+            HeapNode tmp = minValueNode(node.getRight());
+            node.setValue(tmp.getValue());
+            node.setRight(deleteNode(node.getRight(), tmp.getValue()));
+        }
+
+        return node;
+    }
+
 }
