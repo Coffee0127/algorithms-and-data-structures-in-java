@@ -60,4 +60,13 @@ public class Heap {
         }
     }
 
+    public HeapNode minValueNode(HeapNode node) {
+        HeapNode current = node;
+        while (current.getLeft() != null) {
+            current = current.getLeft();
+        }
+
+        return current;
+    }
+
 }
