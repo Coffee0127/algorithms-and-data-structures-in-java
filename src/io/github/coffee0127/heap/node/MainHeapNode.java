@@ -43,10 +43,10 @@ public class MainHeapNode {
         heap.addNode(8);
         heap.addNode(7);
 
-        heap.postOrderPrint(heap.getHeapNode());
+        heap.postOrderPrint();
         heap.deleteNode(heap.getHeapNode(), 2);
         System.out.println("------------------");
-        heap.preOrderPrint(heap.getHeapNode());
+        heap.preOrderPrint();
     }
 
 }

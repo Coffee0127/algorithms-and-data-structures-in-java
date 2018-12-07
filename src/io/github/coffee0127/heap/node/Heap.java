@@ -105,32 +105,44 @@ public class Heap {
     /**
      * root -> left -> right
      */
-    public void preOrderPrint(HeapNode node) {
+    public void preOrderPrint() {
+        doPreOrderPrint(node);
+    }
+
+    public void doPreOrderPrint(HeapNode node) {
         if (node != null) {
             System.out.println(node.getValue());
-            preOrderPrint(node.getLeft());
-            preOrderPrint(node.getRight());
+            doPreOrderPrint(node.getLeft());
+            doPreOrderPrint(node.getRight());
         }
     }
 
     /**
      * left -> root -> right
      */
-    public void inOrderPrint(HeapNode node) {
+    public void inOrderPrint() {
+        doInOrderPrint(node);
+    }
+
+    private void doInOrderPrint(HeapNode node) {
         if (node != null) {
-            inOrderPrint(node.getLeft());
+            doInOrderPrint(node.getLeft());
             System.out.println(node.getValue());
-            inOrderPrint(node.getRight());
+            doInOrderPrint(node.getRight());
         }
     }
 
     /**
      * left -> right -> root
      */
-    public void postOrderPrint(HeapNode node) {
+    public void postOrderPrint() {
+        doPostOrderPrint(node);
+    }
+
+    private void doPostOrderPrint(HeapNode node) {
         if (node != null) {
-            postOrderPrint(node.getLeft());
-            postOrderPrint(node.getRight());
+            doPostOrderPrint(node.getLeft());
+            doPostOrderPrint(node.getRight());
             System.out.println(node.getValue());
         }
     }
