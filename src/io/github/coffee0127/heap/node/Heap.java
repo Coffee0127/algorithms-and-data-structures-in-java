@@ -102,4 +102,15 @@ public class Heap {
         return node;
     }
 
+    /**
+     * root -> left -> right
+     */
+    public void preOrderPrint(HeapNode node) {
+        if (node != null) {
+            System.out.println(node.getValue());
+            preOrderPrint(node.getLeft());
+            preOrderPrint(node.getRight());
+        }
+    }
+
 }
