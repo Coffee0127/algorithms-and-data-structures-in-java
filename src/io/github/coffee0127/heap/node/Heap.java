@@ -113,4 +113,15 @@ public class Heap {
         }
     }
 
+    /**
+     * left -> root -> right
+     */
+    public void inOrderPrint(HeapNode node) {
+        if (node != null) {
+            inOrderPrint(node.getLeft());
+            System.out.println(node.getValue());
+            inOrderPrint(node.getRight());
+        }
+    }
+
 }
