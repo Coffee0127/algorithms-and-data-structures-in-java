@@ -60,16 +60,11 @@ public class Heap {
         }
     }
 
-    public HeapNode minValueNode(HeapNode node) {
-        HeapNode current = node;
-        while (current.getLeft() != null) {
-            current = current.getLeft();
-        }
-
-        return current;
+    public void deleteNode(int value) {
+        deleteNode(node, value);
     }
 
-    public HeapNode deleteNode(HeapNode node, int value) {
+    private HeapNode deleteNode(HeapNode node, int value) {
         // delete nothing
         if (node == null) {
             return null;
@@ -96,6 +91,15 @@ public class Heap {
         }
 
         return node;
+    }
+
+    private HeapNode minValueNode(HeapNode node) {
+        HeapNode current = node;
+        while (current.getLeft() != null) {
+            current = current.getLeft();
+        }
+
+        return current;
     }
 
     public HeapNode getHeapNode() {

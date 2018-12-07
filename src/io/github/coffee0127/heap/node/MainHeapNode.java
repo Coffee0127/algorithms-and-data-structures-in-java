@@ -44,7 +44,7 @@ public class MainHeapNode {
         heap.addNode(7);
 
         heap.postOrderPrint();
-        heap.deleteNode(heap.getHeapNode(), 2);
+        heap.deleteNode(2);
         System.out.println("------------------");
         heap.preOrderPrint();
     }
