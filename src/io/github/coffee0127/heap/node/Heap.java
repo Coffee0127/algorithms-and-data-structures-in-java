@@ -98,4 +98,8 @@ public class Heap {
         return node;
     }
 
+    public HeapNode getHeapNode() {
+        return node;
+    }
+
 }
