@@ -124,4 +124,15 @@ public class Heap {
         }
     }
 
+    /**
+     * left -> right -> root
+     */
+    public void postOrderPrint(HeapNode node) {
+        if (node != null) {
+            postOrderPrint(node.getLeft());
+            postOrderPrint(node.getRight());
+            System.out.println(node.getValue());
+        }
+    }
+
 }
