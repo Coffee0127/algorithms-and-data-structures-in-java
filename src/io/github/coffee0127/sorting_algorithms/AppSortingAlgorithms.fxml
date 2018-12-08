@@ -13,5 +13,6 @@
     <Label layoutX="14.0" layoutY="14.0" text="Algorithms"/>
     <Label layoutX="194.0" layoutY="14.0" text="Results"/>
     <Button layoutX="14.0" layoutY="39.0" mnemonicParsing="false" text="Selection Sort" onAction="#selectionSort"/>
+    <Button layoutX="14.0" layoutY="69.0" mnemonicParsing="false" text="Bubble Sort" onAction="#bubbleSort"/>
     <TextArea fx:id="textArea" layoutX="182.0" layoutY="39.0" prefHeight="200.0" prefWidth="200.0"/>
 </AnchorPane>
