@@ -60,6 +60,19 @@ public class SortingAlgorithms {
         }
     }
 
+    public void bubbleSort() {
+        for (int i = 0; i < array.length - 1; i++) {
+            for (int j = 0; j < array.length - i - 1; j++) {
+                if (array[j] > array[i]) {
+                    // swap the bigger value
+                    int temp = array[j];
+                    array[j] = array[i];
+                    array[i] = temp;
+                }
+            }
+        }
+    }
+
     @Override
     public String toString() {
         return Arrays.toString(array);
