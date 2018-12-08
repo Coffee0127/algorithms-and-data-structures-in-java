@@ -32,21 +32,26 @@ package io.github.coffee0127.heap.node;
 public class MainHeapNode {
 
     public static void main(String[] args) {
-        Heap heap = new Heap();
-        heap.addNode(0);
-        heap.addNode(1);
-        heap.addNode(2);
-        heap.addNode(3);
-        heap.addNode(4);
-        heap.addNode(5);
-        heap.addNode(6);
-        heap.addNode(8);
-        heap.addNode(7);
+        // Heap heap = new Heap();
+        // heap.addNode(0);
+        // heap.addNode(1);
+        // heap.addNode(2);
+        // heap.addNode(3);
+        // heap.addNode(4);
+        // heap.addNode(5);
+        // heap.addNode(6);
+        // heap.addNode(8);
+        // heap.addNode(7);
+        //
+        // heap.postOrderPrint();
+        // heap.deleteNode(2);
+        // System.out.println("------------------");
+        // heap.preOrderPrint();
 
-        heap.postOrderPrint();
-        heap.deleteNode(2);
-        System.out.println("------------------");
-        heap.preOrderPrint();
+        Heap heap = new Heap();
+        heap.addNode(1);
+        heap.addNode(1);
+        heap.inOrderPrint();
     }
 
 }

@@ -47,7 +47,7 @@ public class Heap {
             } else if (value > tmp.getValue()) {
                 tmp = tmp.getRight();
             } else if (value == tmp.getValue()) {
-                tmp = current;
+                break;
             }
         }
 
@@ -55,7 +55,7 @@ public class Heap {
             node = current;
         } else if (value < prev.getValue()) {
             prev.setLeft(current);
-        } else if (value > prev.getValue()) {
+        } else if (value >= prev.getValue()) {
             prev.setRight(current);
         }
     }
