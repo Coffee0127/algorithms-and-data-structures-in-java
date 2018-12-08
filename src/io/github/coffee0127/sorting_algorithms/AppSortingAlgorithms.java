@@ -36,8 +36,6 @@ import javafx.scene.control.TextArea;
  */
 public class AppSortingAlgorithms extends AbstractApplication {
 
-    private SortingAlgorithms algorithms = new SortingAlgorithms();
-
     @FXML
     private TextArea textArea;
 
@@ -48,7 +46,7 @@ public class AppSortingAlgorithms extends AbstractApplication {
     @FXML
     private void selectionSort(ActionEvent event) {
         long start = System.nanoTime();
-        algorithms.selectionSort();
+        new SortingAlgorithms().selectionSort();
         long elapsedTime = System.nanoTime() - start;
         textArea.setText("Selection Sort\nTime : " + elapsedTime + " nano seconds.");
     }
@@ -56,7 +54,7 @@ public class AppSortingAlgorithms extends AbstractApplication {
     @FXML
     private void bubbleSort(ActionEvent event) {
         long start = System.nanoTime();
-        algorithms.bubbleSort();
+        new SortingAlgorithms().bubbleSort();
         long elapsedTime = System.nanoTime() - start;
         textArea.setText("Bubble Sort\nTime : " + elapsedTime + " nano seconds.");
     }
