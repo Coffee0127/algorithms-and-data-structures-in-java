@@ -113,6 +113,88 @@ public class SortingAlgorithms {
         }
     }
 
+    /**
+     * <pre>
+     * Array ----------------------------- [66,  83,  53,  39,  63]
+     * mergeSort(0, 4)
+     * |----- mergeSort(0, 2)              [66,  83,  53]
+     * |    |----- mergeSort(0, 1)         [66,  83]
+     * |    |      |----- mergeSort(0, 0)  ------ do nothing ------
+     * |    |      |----- mergeSort(1, 1)  ------ do nothing ------
+     * |    |      '----- merge(0, 0, 1)   L[66] R[83]
+     * |    |                              => [66,   ]              copy from L
+     * |    |                              => [66, 83]              copy the remaining elements from R
+     * |    |----- mergeSort(2, 2)         ------ do nothing ------
+     * |    '----- merge(0, 1, 2)          L[66, 83] R[53]
+     * |                                   => [53,    ,    ]        copy from R
+     * |                                   => [53,  66,  83]        copy the remaining elements from L
+     * |----- mergeSort(3, 4)                            [39,  63]
+     * |    |----- mergeSort(3, 3)         ------ do nothing ------
+     * |    |----- mergeSort(4, 4)         ------ do nothing ------
+     * |    '----- merge(3, 3, 4)          L[39] R[63]
+     * |                                   => [39,   ]              copy from L
+     * |                                   => [39, 63]              copy the remaining elements from R
+     * '----- merge(0, 2, 4)               L[53, 66, 83] R[39, 63]
+     *                                     => [39,   ,   ,   ,   ]  copy from R
+     *                                     => [39, 53,   ,   ,   ]  copy from L
+     *                                     => [39, 53, 63,   ,   ]  copy from R
+     *                                     => [39, 53, 63, 66, 83]  copy the remaining elements from L
+     * </pre>>
+     */
+    public void mergeSort() {
+        mergeSort(0, array.length - 1);
+    }
+
+    private void mergeSort(int left, int right) {
+        if (left < right) {
+            int middle = (left + right) / 2;
+            mergeSort(left, middle);
+            mergeSort(middle + 1, right);
+            merge(left, middle, right);
+        }
+    }
+
+    private void merge(int left, int middle, int right) {
+        int leftArrayLength = middle - left + 1;
+        int rightArrayLength = right - middle;
+        int[] leftArray = new int[leftArrayLength];
+        int[] rightArray = new int[rightArrayLength];
+
+        for (int leftArrayIndex = 0; leftArrayIndex < leftArrayLength; leftArrayIndex++) {
+            leftArray[leftArrayIndex] = array[left + leftArrayIndex];
+        }
+        for (int rightArrayIndex = 0; rightArrayIndex < rightArrayLength; rightArrayIndex++) {
+            rightArray[rightArrayIndex] = array[middle + 1 + rightArrayIndex];
+        }
+
+        int leftArrayIndex = 0;
+        int rightArrayIndex = 0;
+        int index = left;
+        // get the smaller number from leftArray or rightArray
+        while (leftArrayIndex < leftArrayLength && rightArrayIndex < rightArrayLength) {
+            if (leftArray[leftArrayIndex] <= rightArray[rightArrayIndex]) {
+                array[index] = leftArray[leftArrayIndex];
+                leftArrayIndex++;
+            } else {
+                array[index] = rightArray[rightArrayIndex];
+                rightArrayIndex++;
+            }
+            index++;
+        }
+
+        // copy the remaining elements from leftArray, then rightArray
+        while (leftArrayIndex < leftArrayLength) {
+            array[index] = leftArray[leftArrayIndex];
+            leftArrayIndex++;
+            index++;
+        }
+        while (rightArrayIndex < rightArrayLength) {
+            array[index] = rightArray[rightArrayIndex];
+            rightArrayIndex++;
+            index++;
+        }
+    }
+
     @Override
     public String toString() {
         return Arrays.toString(array);
