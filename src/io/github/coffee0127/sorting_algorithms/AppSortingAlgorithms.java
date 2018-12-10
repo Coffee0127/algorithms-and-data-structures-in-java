@@ -90,6 +90,38 @@ public class AppSortingAlgorithms extends AbstractApplication {
         textArea.setText("Arrays were reset to\n" + sortingAlgorithms.toString());
     }
 
+    @FXML
+    private void allSort() {
+        String originalArray = sortingAlgorithms.toString();
+
+        long start1 = System.nanoTime();
+        sortingAlgorithms.selectionSort();
+        long elapsedTime1 = System.nanoTime() - start1;
+
+        long start2 = System.nanoTime();
+        sortingAlgorithms.bubbleSort();
+        long elapsedTime2 = System.nanoTime() - start2;
+
+        long start3 = System.nanoTime();
+        sortingAlgorithms.insertionSort();
+        long elapsedTime3 = System.nanoTime() - start3;
+
+        long start4 = System.nanoTime();
+        sortingAlgorithms.mergeSort();
+        long elapsedTime4 = System.nanoTime() - start4;
+
+        long start5 = System.nanoTime();
+        sortingAlgorithms.quickSort();
+        long elapsedTime5 = System.nanoTime() - start5;
+
+        textArea.setText("Sorting Array " + originalArray + "\n"
+         + "Selection Sort\nTime : " + elapsedTime1 + " nano seconds.\n"
+         + "Bubble Sort\nTime : " + elapsedTime2 + " nano seconds.\n"
+         + "Insertion Sort\nTime : " + elapsedTime3 + " nano seconds.\n"
+         + "Merge Sort\nTime : " + elapsedTime4 + " nano seconds.\n"
+         + "Quick Sort\nTime : " + elapsedTime5 + " nano seconds.");
+    }
+
     @Override
     protected String getAppTitle() {
         return "Sorting Algorithms";
