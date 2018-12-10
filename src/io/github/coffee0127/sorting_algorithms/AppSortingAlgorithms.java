@@ -24,7 +24,6 @@
 package io.github.coffee0127.sorting_algorithms;
 
 import io.github.coffee0127.AbstractApplication;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 
@@ -44,7 +43,7 @@ public class AppSortingAlgorithms extends AbstractApplication {
     }
 
     @FXML
-    private void selectionSort(ActionEvent event) {
+    private void selectionSort() {
         long start = System.nanoTime();
         new SortingAlgorithms().selectionSort();
         long elapsedTime = System.nanoTime() - start;
@@ -52,7 +51,7 @@ public class AppSortingAlgorithms extends AbstractApplication {
     }
 
     @FXML
-    private void bubbleSort(ActionEvent event) {
+    private void bubbleSort() {
         long start = System.nanoTime();
         new SortingAlgorithms().bubbleSort();
         long elapsedTime = System.nanoTime() - start;
@@ -60,7 +59,7 @@ public class AppSortingAlgorithms extends AbstractApplication {
     }
 
     @FXML
-    private void insertionSort(ActionEvent event) {
+    private void insertionSort() {
         long start = System.nanoTime();
         new SortingAlgorithms().insertionSort();
         long elapsedTime = System.nanoTime() - start;
@@ -68,7 +67,7 @@ public class AppSortingAlgorithms extends AbstractApplication {
     }
 
     @FXML
-    private void mergeSort(ActionEvent event) {
+    private void mergeSort() {
         long start = System.nanoTime();
         new SortingAlgorithms().mergeSort();
         long elapsedTime = System.nanoTime() - start;
@@ -76,7 +75,7 @@ public class AppSortingAlgorithms extends AbstractApplication {
     }
 
     @FXML
-    private void quickSort(ActionEvent event) {
+    private void quickSort() {
         long start = System.nanoTime();
         new SortingAlgorithms().quickSort();
         long elapsedTime = System.nanoTime() - start;
