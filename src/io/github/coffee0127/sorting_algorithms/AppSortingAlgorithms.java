@@ -75,6 +75,14 @@ public class AppSortingAlgorithms extends AbstractApplication {
         textArea.setText("Merge Sort\nTime : " + elapsedTime + " nano seconds.");
     }
 
+    @FXML
+    private void quickSort(ActionEvent event) {
+        long start = System.nanoTime();
+        new SortingAlgorithms().quickSort();
+        long elapsedTime = System.nanoTime() - start;
+        textArea.setText("Quick Sort\nTime : " + elapsedTime + " nano seconds.");
+    }
+
     @Override
     protected String getAppTitle() {
         return "Sorting Algorithms";
