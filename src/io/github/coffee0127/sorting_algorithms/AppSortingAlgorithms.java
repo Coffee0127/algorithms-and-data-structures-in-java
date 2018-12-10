@@ -38,6 +38,8 @@ public class AppSortingAlgorithms extends AbstractApplication {
     @FXML
     private TextArea textArea;
 
+    private SortingAlgorithms sortingAlgorithms = new SortingAlgorithms();
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -45,7 +47,7 @@ public class AppSortingAlgorithms extends AbstractApplication {
     @FXML
     private void selectionSort() {
         long start = System.nanoTime();
-        new SortingAlgorithms().selectionSort();
+        sortingAlgorithms.selectionSort();
         long elapsedTime = System.nanoTime() - start;
         textArea.setText("Selection Sort\nTime : " + elapsedTime + " nano seconds.");
     }
@@ -53,7 +55,7 @@ public class AppSortingAlgorithms extends AbstractApplication {
     @FXML
     private void bubbleSort() {
         long start = System.nanoTime();
-        new SortingAlgorithms().bubbleSort();
+        sortingAlgorithms.bubbleSort();
         long elapsedTime = System.nanoTime() - start;
         textArea.setText("Bubble Sort\nTime : " + elapsedTime + " nano seconds.");
     }
@@ -61,7 +63,7 @@ public class AppSortingAlgorithms extends AbstractApplication {
     @FXML
     private void insertionSort() {
         long start = System.nanoTime();
-        new SortingAlgorithms().insertionSort();
+        sortingAlgorithms.insertionSort();
         long elapsedTime = System.nanoTime() - start;
         textArea.setText("Insertion Sort\nTime : " + elapsedTime + " nano seconds.");
     }
@@ -69,7 +71,7 @@ public class AppSortingAlgorithms extends AbstractApplication {
     @FXML
     private void mergeSort() {
         long start = System.nanoTime();
-        new SortingAlgorithms().mergeSort();
+        sortingAlgorithms.mergeSort();
         long elapsedTime = System.nanoTime() - start;
         textArea.setText("Merge Sort\nTime : " + elapsedTime + " nano seconds.");
     }
@@ -77,7 +79,7 @@ public class AppSortingAlgorithms extends AbstractApplication {
     @FXML
     private void quickSort() {
         long start = System.nanoTime();
-        new SortingAlgorithms().quickSort();
+        sortingAlgorithms.quickSort();
         long elapsedTime = System.nanoTime() - start;
         textArea.setText("Quick Sort\nTime : " + elapsedTime + " nano seconds.");
     }

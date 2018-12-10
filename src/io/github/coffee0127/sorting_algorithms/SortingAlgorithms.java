@@ -34,40 +34,50 @@ import java.util.Random;
  */
 public class SortingAlgorithms {
 
-    private int[] array = new int[50];
+    private static final int ARRAY_LENGTH = 50;
+    private int[] selectionSortArray = new int[ARRAY_LENGTH];
+    private int[] bubbleSortArray = new int[ARRAY_LENGTH];
+    private int[] insertionSortArray = new int[ARRAY_LENGTH];
+    private int[] mergeSortArray = new int[ARRAY_LENGTH];
+    private int[] quickSortArray = new int[ARRAY_LENGTH];
 
     public SortingAlgorithms() {
         Random random = new Random();
 
-        for (int i = 0; i < array.length; i++) {
-            array[i] = random.nextInt(101);
+        for (int i = 0; i < ARRAY_LENGTH; i++) {
+            int randomNumber = random.nextInt(101);
+            selectionSortArray[i] = randomNumber;
+            bubbleSortArray[i] = randomNumber;
+            insertionSortArray[i] = randomNumber;
+            mergeSortArray[i] = randomNumber;
+            quickSortArray[i] = randomNumber;
         }
     }
 
     public void selectionSort() {
-        for (int i = 0; i < array.length - 1; i++) {
+        for (int i = 0; i < selectionSortArray.length - 1; i++) {
             int minIndex = i;
-            for (int j = i + 1; j < array.length; j++) {
-                if (array[j] < array[minIndex]) {
+            for (int j = i + 1; j < selectionSortArray.length; j++) {
+                if (selectionSortArray[j] < selectionSortArray[minIndex]) {
                     minIndex = j;
                 }
             }
 
             // swap the min value
-            int temp = array[minIndex];
-            array[minIndex] = array[i];
-            array[i] = temp;
+            int temp = selectionSortArray[minIndex];
+            selectionSortArray[minIndex] = selectionSortArray[i];
+            selectionSortArray[i] = temp;
         }
     }
 
     public void bubbleSort() {
-        for (int i = 0; i < array.length - 1; i++) {
-            for (int j = 0; j < array.length - i - 1; j++) {
-                if (array[j] > array[i]) {
+        for (int i = 0; i < bubbleSortArray.length - 1; i++) {
+            for (int j = 0; j < bubbleSortArray.length - i - 1; j++) {
+                if (bubbleSortArray[j] > bubbleSortArray[i]) {
                     // swap the bigger value
-                    int temp = array[j];
-                    array[j] = array[i];
-                    array[i] = temp;
+                    int temp = bubbleSortArray[j];
+                    bubbleSortArray[j] = bubbleSortArray[i];
+                    bubbleSortArray[i] = temp;
                 }
             }
         }
@@ -100,16 +110,16 @@ public class SortingAlgorithms {
      * </pre>
      */
     public void insertionSort() {
-        for (int i = 1; i < array.length; i++) {
-            int key = array[i];
+        for (int i = 1; i < insertionSortArray.length; i++) {
+            int key = insertionSortArray[i];
             int j = i - 1;
-            while (j >= 0 && array[j] > key) {
+            while (j >= 0 && insertionSortArray[j] > key) {
                 // move the element rightward
-                array[j + 1] = array[j];
+                insertionSortArray[j + 1] = insertionSortArray[j];
                 // minus index j for previous element
                 j = j - 1;
             }
-            array[j + 1] = key;
+            insertionSortArray[j + 1] = key;
         }
     }
 
@@ -142,7 +152,7 @@ public class SortingAlgorithms {
      * </pre>>
      */
     public void mergeSort() {
-        mergeSort(0, array.length - 1);
+        mergeSort(0, mergeSortArray.length - 1);
     }
 
     private void mergeSort(int left, int right) {
@@ -161,10 +171,10 @@ public class SortingAlgorithms {
         int[] rightArray = new int[rightArrayLength];
 
         for (int leftArrayIndex = 0; leftArrayIndex < leftArrayLength; leftArrayIndex++) {
-            leftArray[leftArrayIndex] = array[left + leftArrayIndex];
+            leftArray[leftArrayIndex] = mergeSortArray[left + leftArrayIndex];
         }
         for (int rightArrayIndex = 0; rightArrayIndex < rightArrayLength; rightArrayIndex++) {
-            rightArray[rightArrayIndex] = array[middle + 1 + rightArrayIndex];
+            rightArray[rightArrayIndex] = mergeSortArray[middle + 1 + rightArrayIndex];
         }
 
         int leftArrayIndex = 0;
@@ -173,10 +183,10 @@ public class SortingAlgorithms {
         // get the smaller number from leftArray or rightArray
         while (leftArrayIndex < leftArrayLength && rightArrayIndex < rightArrayLength) {
             if (leftArray[leftArrayIndex] <= rightArray[rightArrayIndex]) {
-                array[index] = leftArray[leftArrayIndex];
+                mergeSortArray[index] = leftArray[leftArrayIndex];
                 leftArrayIndex++;
             } else {
-                array[index] = rightArray[rightArrayIndex];
+                mergeSortArray[index] = rightArray[rightArrayIndex];
                 rightArrayIndex++;
             }
             index++;
@@ -184,12 +194,12 @@ public class SortingAlgorithms {
 
         // copy the remaining elements from leftArray, then rightArray
         while (leftArrayIndex < leftArrayLength) {
-            array[index] = leftArray[leftArrayIndex];
+            mergeSortArray[index] = leftArray[leftArrayIndex];
             leftArrayIndex++;
             index++;
         }
         while (rightArrayIndex < rightArrayLength) {
-            array[index] = rightArray[rightArrayIndex];
+            mergeSortArray[index] = rightArray[rightArrayIndex];
             rightArrayIndex++;
             index++;
         }
@@ -233,7 +243,7 @@ public class SortingAlgorithms {
      *      '-- quickSort(4, 4)    do nothing
      */
     public void quickSort() {
-        quickSort(0, array.length - 1, 1);
+        quickSort(0, quickSortArray.length - 1, 1);
     }
 
     private void quickSort(int low, int high, int times) {
@@ -247,29 +257,33 @@ public class SortingAlgorithms {
     }
 
     private int partition(int low, int high) {
-        int pivot = array[high];
+        int pivot = quickSortArray[high];
         int index = low;
 
         for (int j = low; j < high; j++) {
             // swap elements if current element is smaller than or equal to pivot
-            if (array[j] <= pivot) {
-                int temp = array[index];
-                array[index] = array[j];
-                array[j] = temp;
+            if (quickSortArray[j] <= pivot) {
+                int temp = quickSortArray[index];
+                quickSortArray[index] = quickSortArray[j];
+                quickSortArray[j] = temp;
                 index++;
             }
         }
 
         // swap arr[index] and arr[high] (i.e. pivot)
-        int temp = array[index];
-        array[index] = array[high];
-        array[high] = temp;
+        int temp = quickSortArray[index];
+        quickSortArray[index] = quickSortArray[high];
+        quickSortArray[high] = temp;
         return index;
     }
 
     @Override
     public String toString() {
-        return Arrays.toString(array);
+        return "selectionSortArray=" + Arrays.toString(selectionSortArray) + "\n"
+            + "bubbleSortArray=" + Arrays.toString(bubbleSortArray) + "\n"
+            + "insertionSortArray=" + Arrays.toString(insertionSortArray) + "\n"
+            + "mergeSortArray=" + Arrays.toString(mergeSortArray) + "\n"
+            + "quickSortArray=" + Arrays.toString(quickSortArray);
     }
 
 }
