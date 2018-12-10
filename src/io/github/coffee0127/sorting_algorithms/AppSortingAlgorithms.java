@@ -84,6 +84,12 @@ public class AppSortingAlgorithms extends AbstractApplication {
         textArea.setText("Quick Sort\nTime : " + elapsedTime + " nano seconds.");
     }
 
+    @FXML
+    private void newArrays() {
+        sortingAlgorithms.newArrays();
+        textArea.setText("Arrays were reset to\n" + sortingAlgorithms.toString());
+    }
+
     @Override
     protected String getAppTitle() {
         return "Sorting Algorithms";

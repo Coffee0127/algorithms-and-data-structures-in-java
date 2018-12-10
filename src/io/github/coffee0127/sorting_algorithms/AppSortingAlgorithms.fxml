@@ -17,5 +17,6 @@
     <Button layoutX="14.0" layoutY="99.0" mnemonicParsing="false" text="Insertion Sort" prefHeight="25.0" prefWidth="120.0" onAction="#insertionSort"/>
     <Button layoutX="14.0" layoutY="129.0" mnemonicParsing="false" text="Merge Sort" prefHeight="25.0" prefWidth="120.0" onAction="#mergeSort"/>
     <Button layoutX="14.0" layoutY="159.0" mnemonicParsing="false" text="Quick Sort" prefHeight="25.0" prefWidth="120.0" onAction="#quickSort"/>
+    <Button layoutX="14.0" layoutY="189.0" mnemonicParsing="false" text="New Arrays" prefHeight="25.0" prefWidth="120.0" onAction="#newArrays"/>
     <TextArea fx:id="textArea" layoutX="182.0" layoutY="39.0" prefHeight="200.0" prefWidth="200.0"/>
 </AnchorPane>

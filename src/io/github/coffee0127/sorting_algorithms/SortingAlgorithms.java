@@ -42,6 +42,10 @@ public class SortingAlgorithms {
     private int[] quickSortArray = new int[ARRAY_LENGTH];
 
     public SortingAlgorithms() {
+        newArrays();
+    }
+
+    public void newArrays() {
         Random random = new Random();
 
         for (int i = 0; i < ARRAY_LENGTH; i++) {
@@ -279,11 +283,7 @@ public class SortingAlgorithms {
 
     @Override
     public String toString() {
-        return "selectionSortArray=" + Arrays.toString(selectionSortArray) + "\n"
-            + "bubbleSortArray=" + Arrays.toString(bubbleSortArray) + "\n"
-            + "insertionSortArray=" + Arrays.toString(insertionSortArray) + "\n"
-            + "mergeSortArray=" + Arrays.toString(mergeSortArray) + "\n"
-            + "quickSortArray=" + Arrays.toString(quickSortArray);
+        return Arrays.toString(selectionSortArray);
     }
 
 }
