@@ -195,6 +195,78 @@ public class SortingAlgorithms {
         }
     }
 
+    /**
+     * Array [66, 83, 53, 39, 63]
+     * quickSort(0, 4)
+     * |-- partition(0, 4)             pivot = 63
+     * |                              |          |            |       |         array
+     * |                            j |  result  |   action   | index | [66, 83, 53, 39, 63]
+     * |                           ---|----------|------------|-------|----------------------
+     * |                            0 | 66 >  63 | do nothing |   0   |          --
+     * |                            1 | 83 >  63 | do nothing |   0   |          --
+     * |                            2 | 53 <= 63 |    swap    |   1   | [53, **, 66, **, **]
+     * |                            3 | 39 <= 63 |    swap    |   2   | [**, 39, **, 83, **]
+     * |                                                            ==> [53, 39, 66, 83, 63]
+     * |                                                            ==> [53, 39, 63, 83, 66]  // swap arr[index] and pivot
+     * |                                                            ==> partitionIndex = 2
+     * |-- quickSort(0, 1)
+     * |    |-- partition(0, 1)        pivot = 39
+     * |    |                         |          |            |       |         array
+     * |    |                       j |  result  |   action   | index | [53, 39, **, **, **]
+     * |    |                      ---|----------|------------|-------|----------------------
+     * |    |                       0 | 53 >  39 | do nothing |   0   | [53, 39, **, **, **]
+     * |    |                                                       ==> [53, 39, 63, 83, 66]
+     * |    |                                                       ==> [39, 53, 63, 83, 66]  // swap arr[index] and pivot
+     * |    |                                                       ==> partitionIndex = 0
+     * |    |-- quickSort(0, -1)   do nothing
+     * |    '-- quickSort(1, 1)    do nothing
+     * '-- quickSort(3, 4)
+     *      |-- partition(3, 4)        pivot = 66
+     *      |                         |          |            |       |         array
+     *      |                       j |  result  |   action   | index | [**, **, **, 83, 66]
+     *      |                      ---|----------|------------|-------|----------------------
+     *      |                       3 | 83 >  66 | do nothing |   0   | [**, **, **, 83, 66]
+     *      |                                                       ==> [39, 53, 63, 83, 66]
+     *      |                                                       ==> [39, 53, 63, 66, 83]  // swap arr[index] and pivot
+     *      |                                                       ==> partitionIndex = 0
+     *      |-- quickSort(3, 2)    do nothing
+     *      '-- quickSort(4, 4)    do nothing
+     */
+    public void quickSort() {
+        quickSort(0, array.length - 1, 1);
+    }
+
+    private void quickSort(int low, int high, int times) {
+        if (low < high) {
+            int partitionIndex = partition(low, high);
+
+            // recursively sort elements before partition and after partition
+            quickSort(low, partitionIndex - 1, times + 1);
+            quickSort(partitionIndex + 1, high, times + 1);
+        }
+    }
+
+    private int partition(int low, int high) {
+        int pivot = array[high];
+        int index = low;
+
+        for (int j = low; j < high; j++) {
+            // swap elements if current element is smaller than or equal to pivot
+            if (array[j] <= pivot) {
+                int temp = array[index];
+                array[index] = array[j];
+                array[j] = temp;
+                index++;
+            }
+        }
+
+        // swap arr[index] and arr[high] (i.e. pivot)
+        int temp = array[index];
+        array[index] = array[high];
+        array[high] = temp;
+        return index;
+    }
+
     @Override
     public String toString() {
         return Arrays.toString(array);
