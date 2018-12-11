@@ -47,4 +47,25 @@ public class SearchAlgorithms {
         return "Array : " + Arrays.toString(array);
     }
 
+    public String linearSearch(int number) {
+        boolean isFound = false;
+
+        long start = System.nanoTime();
+        for (int i : array) {
+            if (number == i) {
+                isFound = true;
+                break;
+            }
+        }
+
+        long elapsedTime = System.nanoTime() - start;
+        String result;
+        if (isFound) {
+            result = "The number was found!";
+        } else {
+            result = "The number was not found...";
+        }
+        return result + "\nThe time it takes the function to complete: " + elapsedTime + " nano seconds";
+    }
+
 }
