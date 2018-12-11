@@ -20,7 +20,9 @@
     <TextField fx:id="num" layoutX="15.0" layoutY="80.0" prefWidth="150.0"/>
     <Button layoutX="180.0" layoutY="80.0" mnemonicParsing="false" onAction="#linearSearch" prefWidth="100.0"
             text="Linear Search"/>
+    <Button layoutX="180.0" layoutY="105.0" mnemonicParsing="false" onAction="#binarySearch" prefWidth="100.0"
+            text="Binary Search"/>
 
-    <Label fx:id="array" layoutX="15.0" layoutY="120.0"/>
-    <TextArea fx:id="print" layoutX="15.0" layoutY="140.0" prefHeight="100.0" prefWidth="265.0" wrapText="true"/>
+    <Label fx:id="array" layoutX="15.0" layoutY="135.0"/>
+    <TextArea fx:id="print" layoutX="15.0" layoutY="155.0" prefHeight="100.0" prefWidth="265.0" wrapText="true"/>
 </AnchorPane>
