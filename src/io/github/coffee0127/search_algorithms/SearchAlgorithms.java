@@ -68,4 +68,35 @@ public class SearchAlgorithms {
         return result + "\nThe time it takes the function to complete: " + elapsedTime + " nano seconds";
     }
 
+    public String binarySearch(int number) {
+        boolean isFound = false;
+        int left = 0;
+        int right = array.length - 1;
+        int middle;
+
+        long start = System.nanoTime();
+
+        while (left <= right) {
+            middle = (left + right) / 2;
+            if (array[middle] == number) {
+                isFound = true;
+                break;
+            }
+
+            if (array[middle] > number) {
+                right = middle - 1;
+            } else {
+                left = middle + 1;
+            }
+        }
+
+        long elapsedTime = System.nanoTime() - start;
+        String result;
+        if (isFound) {
+            result = "The number was found!";
+        } else {
+            result = "The number was not found...";
+        }
+        return result + "\nThe time it takes the function to complete: " + elapsedTime + " nano seconds";
+    }
 }
