@@ -59,6 +59,11 @@ public class AppSearchAlgorithms extends AbstractApplication {
         print.setText(algorithms.linearSearch(num));
     }
 
+    public void binarySearch() {
+        int num = Integer.parseInt(this.num.getText());
+        print.setText(algorithms.binarySearch(num));
+    }
+
     @Override
     protected String getAppTitle() {
         return "Linear SearchAlgorithms";
